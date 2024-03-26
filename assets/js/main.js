@@ -1,3 +1,5 @@
+console.log("hello world");
+
 /*=============== SHOW MENU ===============*/
 const navMenu = document.getElementById("nav-menu"),
   navToggle = document.getElementById("nav-toggle"),
@@ -17,7 +19,7 @@ if (navClose) {
   });
 }
 
-/*=============== REMOVE MENU MOBILE ===============*/
+/*========== REMOVE MENU MOBILE ==========*/
 const navLink = document.querySelectorAll(".nav-link");
 
 const linkAction = () => {
@@ -26,3 +28,13 @@ const linkAction = () => {
   navMenu.classList.remove("show-menu");
 };
 navLink.forEach((n) => n.addEventListener("click", linkAction));
+
+/*========== SHADOW HEADER ==========*/
+const shadowHeader = () => {
+  const header = document.getElementById("header");
+  //when scroll is greater than 50 viewport height add shadow-header class
+  this.scrollY >= 50
+    ? header.classList.add("shadow-header")
+    : header.classList.remove("shadow-header");
+};
+window.addEventListener("scroll", shadowHeader);
