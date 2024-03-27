@@ -75,3 +75,35 @@ const sendEmail = (e) => {
 };
 
 contactForm.addEventListener("submit", sendEmail);
+
+/*========== SHOW SCROLL UP ==========*/
+const scrollUp = () => {
+  const scrollUp = document.getElementById("scroll-up");
+  // When scroll is > 350 viewport height, add show-scroll class to tag with scrollup class
+  this.scrollY >= 350
+    ? scrollUp.classList.add("show-scroll")
+    : scrollUp.classList.remove("show-scroll");
+};
+window.addEventListener("scroll", scrollUp);
+
+/*========== SCROLL SECTIONS ACTIVE LINK ==========*/
+const sections = document.querySelectorAll("section[id]");
+
+const scrollActive = () => {
+  const scrollDown = window.scrollY;
+
+  sections.forEach((section) => {
+    const sectionHeight = section.offSetHeight,
+      sectionTop = section.offsetTop - 58,
+      sectionId = section.getAttribute("id"),
+      sectionsClass = document.querySelector(
+        ".nav-menu a[href*=" + sectionId + "]"
+      );
+
+    if (scrollDown > sectionTop && scrollDown <= sectionTop + sectionHeight) {
+      sectionsClass.classList.add("active-link");
+    } else {
+      sectionsClass.classList.remove("active-link");
+    }
+  });
+};
