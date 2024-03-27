@@ -1,5 +1,3 @@
-console.log("hello world");
-
 /*=============== SHOW MENU ===============*/
 const navMenu = document.getElementById("nav-menu"),
   navToggle = document.getElementById("nav-toggle"),
@@ -38,3 +36,42 @@ const shadowHeader = () => {
     : header.classList.remove("shadow-header");
 };
 window.addEventListener("scroll", shadowHeader);
+
+/*========== EMAIL JS ==========*/
+const contactForm = document.getElementById("contact-form"),
+  contactMessage = document.getElementById("contact-message");
+
+const sendEmail = (e) => {
+  e.preventDefault();
+
+  // serviceID - templateID - #form - publicKey
+  emailjs
+    .sendForm(
+      "service_6zgg6fc",
+      "template_o0vwyql",
+      "#contact-form",
+      "jQirydwaOomqnQI3x"
+    )
+    .then(
+      (response) => {
+        // Show sent message
+        contactMessage.textContent = "Message sent successfully ✅";
+        console.log(response.text);
+
+        // Remove message after five seconds
+        setTimeout(() => {
+          contactMessage.textContent = "";
+        }, 5000);
+
+        // Clear input fields
+        contactForm.reset();
+      },
+      (error) => {
+        // Show error message
+        contactForm.textContent = "Message not sent (service error) ❌";
+        console.log(error);
+      }
+    );
+};
+
+contactForm.addEventListener("submit", sendEmail);
