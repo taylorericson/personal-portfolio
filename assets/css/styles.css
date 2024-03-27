@@ -946,3 +946,39 @@ img {
   bottom: -1.6rem;
   left: 0;
 }
+
+/*=========== FOOTER ==========*/
+.footer {
+  background-color: var(--black-color);
+}
+
+.footer-container {
+  padding-block: 3rem 2rem;
+  row-gap: 2.5rem;
+}
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  column-gap: 2rem;
+}
+
+.footer-link {
+  color: var(--white-color);
+  transition: color 0.4s;
+}
+
+.footer-link:hover {
+  color: var(--text-color-light);
+}
+
+.footer-copy {
+  color: var(--text-color-light);
+  font-size: var(--small-font-size);
+  text-align: center;
+}
+
+.footer-copy a {
+  color: var(--white-color);
+  font-weight: var(--font-medium);
+}
