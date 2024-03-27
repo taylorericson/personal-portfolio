@@ -86,7 +86,7 @@ const scrollUp = () => {
 };
 window.addEventListener("scroll", scrollUp);
 
-/*========== SCROLL SECTIONS ACTIVE LINK ==========*/
+/*===== SCROLL SECTIONS ACTIVE LINK =====*/
 const sections = document.querySelectorAll("section[id]");
 
 const scrollActive = () => {
@@ -107,3 +107,39 @@ const scrollActive = () => {
     }
   });
 };
+window.addEventListener("scroll", scrollActive);
+
+/*===== DARK LIGHT THEME =====*/
+const themeButton = document.getElementById("theme-button");
+const darkTheme = "dark-theme";
+const iconTheme = "ri-sun-line";
+
+// Previously selected topic
+const selectedTheme = localStorage.getItem("selected-theme");
+const selectedIcon = localStorage.getItem("selected-icon");
+
+// Obtain current theme by validating dark-theme class
+const getCurrentTheme = () =>
+  document.body.classList.contains(darkTheme) ? "dark" : "light";
+const getCurrentIcon = () =>
+  themeButton.classList.contains(iconTheme) ? "ri-moon-line" : "ri-sun-line";
+
+// Validate if the user chose a theme
+if (selectedTheme) {
+  // Activate or deactivate theme
+  document.body.classList[selectedTheme === "dark" ? "add" : "remove"](
+    darkTheme
+  );
+  themeButton.classList[selectedIcon === "ri-moon-line" ? "add" : "remove"](
+    iconTheme
+  );
+}
+// Activate or deactivate theme with button
+themeButton.addEventListener("click", () => {
+  // Add or remove dark / icon theme
+  document.body.classList.toggle(darkTheme);
+  themeButton.classList.toggle(iconTheme);
+  // Save theme and currrent icon
+  localStorage.setItem("selected-theme", getCurrentTheme());
+  localStorage.setItem("selected-icon", getCurrentIcon());
+});
