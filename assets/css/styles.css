@@ -357,7 +357,7 @@ body.dark-theme {
 }
 
 .nav-link:hover::after {
-  width: 25%;
+  width: 80%;
 }
 
 .nav-close {
@@ -388,6 +388,10 @@ body.dark-theme {
 }
 
 /*=========== HOME ==========*/
+.home.section {
+  height: 95vh;
+}
+
 .home-container {
   padding-top: 2rem;
 }
@@ -657,7 +661,7 @@ body.dark-theme {
 }
 
 .about-list {
-  list-style: square;
+  list-style-type: none;
   color: var(--title-color);
   margin-bottom: 3rem;
 }
