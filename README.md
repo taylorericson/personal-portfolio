@@ -15,5 +15,6 @@ Welcome to the GitHub repository for my personal portfolio website! This website
 - **CSS:** For styling the website.
 - **JavaScript:** For the interactive elements of the website.
 - **EmailJS:** For handling the email sending functionality from the contact form.
+- **Vercel** For project deployment.
 
 
